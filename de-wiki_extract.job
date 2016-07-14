@@ -1,0 +1,32 @@
+#!/bin/bash
+###########################
+##   The PBS directives   #
+###########################
+#PBS -r n
+#PBS -A OP-NLP
+#PBS -e log/
+#PBS -o log/
+
+#PBS -l walltime=00:30:00
+#PBS -l select=1:ncpus=4:mem=10gb
+#PBS -N de-wiki-extr
+
+cd $PBS_O_WORKDIR
+PRINTFILE=$PBS_O_WORKDIR/log/$PBS_JOBNAME".print"
+source /home/malie102/base/logging_header.sh
+
+###########################
+##   Modules		      #
+###########################
+# module load CUDA/6.5.14
+module load Python/3.4.5
+export LD_LIBRARY_PATH=/home/malie102/lib:$LD_LIBRARY_PATH
+
+
+echo "Modules: loaded" >> $LOGFILE
+###########################
+##   Execution		      #
+###########################
+python -u process_wiki.py dewiki-latest-pages-articles.xml.bz2 wiki.de.text >> $LOGFILE
+
+source /home/malie102/base/logging_end.sh
