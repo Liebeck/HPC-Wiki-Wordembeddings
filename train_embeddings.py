@@ -31,3 +31,4 @@ if __name__ == '__main__':
 	model.init_sims(replace=True)
 
 	model.save(output_embedding_path)
+	model.save_word2vec_format(output_embedding_path + "_non_binary", binary=False)
