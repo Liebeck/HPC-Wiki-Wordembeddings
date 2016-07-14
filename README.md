@@ -1,5 +1,5 @@
 # HPC-Wiki-Wordembeddings
-This project contains the PBS job scripts and Python scripts to generate word embeddings from Wikipedia Dump.
+This project contains the PBS job scripts and Python scripts to generate word embeddings from a Wikipedia dump.
 Please note, there is no dependency management involved and some paths are hardcoded.
 
 # How to train the model
