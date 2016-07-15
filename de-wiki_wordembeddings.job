@@ -7,7 +7,6 @@
 #PBS -e log/
 #PBS -o log/
 
-#PBS -k oe
 #PBS -l walltime=03:00:00
 #PBS -l select=1:ncpus=20:mem=20gb
 #PBS -N de-wiki-embd
@@ -38,6 +37,6 @@ echo -e "Wikipedia input file=\t\t"$inputfile >> $PRINTFILE
 echo -e "Word2Vec output file=\t\t"$outputfile >> $PRINTFILE
 echo -e "Training embeddings with size\t="$size >> $PRINTFILE
 
-python -u train_embeddings.py $inputfile $outputfile  >> $PRINTFILE
+python -u train_embeddings.py $inputfile $outputfile $size >> $PRINTFILE
 
 source /home/malie102/base/logging_end.sh

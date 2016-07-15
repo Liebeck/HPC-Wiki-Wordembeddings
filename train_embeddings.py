@@ -21,14 +21,16 @@ if __name__ == '__main__':
 	# check and process input arguments
 	input_path_wiki = sys.argv[1]
 	output_embedding_path = sys.argv[2]
+	size = int(sys.argv[3])
 	logger.info("Input path wiki: " + input_path_wiki)
 	logger.info("Word embedding output path: " + output_embedding_path)
+	logger.info("Size: " + str(size))
 	if len(sys.argv) < 3:
 		sys.exit(1)
 
-	model = Word2Vec(LineSentence(input_path_wiki), size=400, window=5, min_count=5, workers=20)
+	model = Word2Vec(LineSentence(input_path_wiki), size=size, window=5, min_count=5, workers=20)
 	# trim unneeded model memory = use (much) less RAM
 	model.init_sims(replace=True)
 
-	model.save(output_embedding_path)
-	model.save_word2vec_format(output_embedding_path + "_non_binary", binary=False)
+	model.save(output_embedding_path + "_binary")
+	model.save_word2vec_format(output_embedding_path, binary=False)
