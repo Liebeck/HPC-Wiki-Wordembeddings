@@ -28,6 +28,6 @@ echo "Modules: loaded" >> $LOGFILE
 ###########################
 ##   Execution		      #
 ###########################
-python -u process_wiki.py dewiki-latest-pages-articles.xml.bz2 wiki.de.text >> $PRINTFILE
+python -u process_wiki.py dewiki-latest-pages-articles.xml.bz2 wiki-de.text >> $PRINTFILE
 
 source /home/malie102/base/logging_end.sh

@@ -7,13 +7,14 @@
 #PBS -e log/
 #PBS -o log/
 
+#PBS -k oe
 #PBS -l walltime=03:00:00
 #PBS -l select=1:ncpus=20:mem=20gb
-#PBS -N de-wiki-extr
+#PBS -N de-wiki-embd
 
 cd $PBS_O_WORKDIR
 LOGFILE=$PBS_O_WORKDIR/log/$PBS_JOBNAME"."$PBS_JOBID".log"
-PRINTFILE=$PBS_O_WORKDIR/log/$PBS_JOBNAME".print"
+PRINTFILE=$PBS_O_WORKDIR/log/$PBS_JOBNAME"."$PBS_JOBID".print"
 source /home/malie102/base/logging_header.sh
 
 ###########################
@@ -28,6 +29,15 @@ echo "Modules: loaded" >> $LOGFILE
 ###########################
 ##   Execution		      #
 ###########################
-python -u train_embeddings.py wiki.de.text embeddings_wiki-de_400.model >> $PRINTFILE
+: ${size:="400"}  # Default value 400, can be replaced by qsub -v size=200 de-wiki_wordembeddings.job
+: ${inputfile:="wiki-de.text"}  
+: ${outputfile:="word2vec_wiki-de_${size}"} 
+
+
+echo -e "Wikipedia input file=\t\t"$inputfile >> $PRINTFILE
+echo -e "Word2Vec output file=\t\t"$outputfile >> $PRINTFILE
+echo -e "Training embeddings with size\t="$size >> $PRINTFILE
+
+python -u train_embeddings.py $inputfile $outputfile  >> $PRINTFILE
 
 source /home/malie102/base/logging_end.sh
