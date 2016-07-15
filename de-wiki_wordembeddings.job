@@ -12,6 +12,7 @@
 #PBS -N de-wiki-extr
 
 cd $PBS_O_WORKDIR
+LOGFILE=$PBS_O_WORKDIR/log/$PBS_JOBNAME"."$PBS_JOBID".log"
 PRINTFILE=$PBS_O_WORKDIR/log/$PBS_JOBNAME".print"
 source /home/malie102/base/logging_header.sh
 
@@ -27,6 +28,6 @@ echo "Modules: loaded" >> $LOGFILE
 ###########################
 ##   Execution		      #
 ###########################
-python -u /home/malie102/jobs/de-wiki_wordembeddings/train_embeddings.py wiki.de.text embeddings_wiki-de_400.model >> $LOGFILE
+python -u train_embeddings.py wiki.de.text embeddings_wiki-de_400.model >> $PRINTFILE
 
 source /home/malie102/base/logging_end.sh
