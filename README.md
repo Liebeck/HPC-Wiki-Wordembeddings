@@ -16,3 +16,8 @@ The code is from http://textminingonline.com/training-word2vec-model-on-english-
 ## How to train the embeddings locally
 1. Download the latest dump
 2. python process_wiki.py dewiki-20161120-pages-articles.xml.bz2 wiki-de_20161120.text
+
+
+## Dependencies
+* gensim
+* gfortran
