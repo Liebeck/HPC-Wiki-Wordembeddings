@@ -11,7 +11,7 @@ from gensim.models.word2vec import LineSentence
 
 
 def config_argparser():
-    argparser = argparse.ArgumentParser(description='ArgMining')
+    argparser = argparse.ArgumentParser(description='Wikipedia train word2vec')
     argparser.add_argument('-input_path', type=str, required=True, help='Path to the preprocessed Wikipedia dump')
     argparser.add_argument('-output_path', type=str, required=True, help='Write path for the word2vec models')
     argparser.add_argument('-dimension', type=int, help='Size of the embeddings')
