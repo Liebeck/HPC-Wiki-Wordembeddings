@@ -9,7 +9,7 @@
 
 #PBS -l walltime=03:00:00
 #PBS -l select=1:ncpus=20:mem=20gb
-#PBS -N de-wikipedia-train-word2vec
+#PBS -N wikipedia-train-word2vec
 
 cd $PBS_O_WORKDIR
 LOGFILE=$PBS_O_WORKDIR/log/$PBS_JOBNAME"."$PBS_JOBID".log"
@@ -19,7 +19,6 @@ source /home/malie102/base/logging_header.sh
 ###########################
 ##   Modules		      #
 ###########################
-# module load CUDA/6.5.14
 module load Python/3.4.5
 export LD_LIBRARY_PATH=/home/malie102/lib:$LD_LIBRARY_PATH
 
@@ -37,6 +36,5 @@ echo -e "Wikipedia input file=\t\t"$inputfile >> $PRINTFILE
 echo -e "Word2Vec output file=\t\t"$outputfile >> $PRINTFILE
 echo -e "Training embeddings with size\t="$size >> $PRINTFILE
 
-python -u /scratch_gs/malie102/jobs/nlp-representations/word2vec/train_embeddings.py --input $inputfile --output $outputfile --dimension $size >> $PRINTFILE
-
+python -u /scratch_gs/malie102/jobs/nlp-representations/word2vec/train_embeddings.py -input_path $inputfile -output_path $outputfile -dimension $size >> $PRINTFILE
 source /home/malie102/base/logging_end.sh
