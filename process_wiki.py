@@ -27,8 +27,10 @@ if __name__ == '__main__':
     output = open(output_path, 'w')
     wiki = WikiCorpus(input_path, lemmatize=False, dictionary={})
     for text in wiki.get_texts():
+        #article = space.join([t.decode("utf-8") for t in text])
+        #output.write("{}\n".format(article.encode("utf-8")))
         article = space.join([t.decode("utf-8") for t in text])
-        output.write("{}\n".format(article.encode("utf-8")))
+        output.write("{}\n".format(article))
         i = i + 1
         if (i % 10000 == 0):
             logger.info("Saved " + str(i) + " articles")
