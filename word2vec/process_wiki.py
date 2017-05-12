@@ -6,6 +6,7 @@
 import logging
 import os.path
 import sys
+import six
 
 from gensim.corpora import WikiCorpus
 
@@ -27,9 +28,12 @@ if __name__ == '__main__':
     output = open(output_path, 'w')
     wiki = WikiCorpus(input_path, lemmatize=False, dictionary={})
     for text in wiki.get_texts():
-        #article = space.join([t.decode("utf-8") for t in text])
-        #output.write("{}\n".format(article.encode("utf-8")))
-        article = space.join([t.decode("utf-8") for t in text])
+        # article = space.join([t.decode("utf-8") for t in text])
+        # output.write("{}\n".format(article.encode("utf-8")))
+        if six.PY3:
+            article = space.join([t.decode("utf-8") for t in text])
+        else:
+            article = space.join(text) + "\n"
         output.write("{}\n".format(article))
         i = i + 1
         if (i % 10000 == 0):
