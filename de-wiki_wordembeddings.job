@@ -9,7 +9,7 @@
 
 #PBS -l walltime=03:00:00
 #PBS -l select=1:ncpus=20:mem=20gb
-#PBS -N de-wiki-embd
+#PBS -N de-wikipedia-train-word2vec
 
 cd $PBS_O_WORKDIR
 LOGFILE=$PBS_O_WORKDIR/log/$PBS_JOBNAME"."$PBS_JOBID".log"
