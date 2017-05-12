@@ -27,6 +27,6 @@ echo "Modules: loaded" >> $LOGFILE
 ###########################
 ##   Execution		      #
 ###########################
-python -u /scratch_gs/malie102/jobs/nlp-representations/word2vec/process_wiki.py -input_path $inputfile -output_path $outputfile >> $PRINTFILE
+python -u /scratch_gs/malie102/jobs/nlp-representations/word2vec/wikipedia_extract.py -input_path $inputfile -output_path $outputfile >> $PRINTFILE
 
 source /home/malie102/base/logging_end.sh

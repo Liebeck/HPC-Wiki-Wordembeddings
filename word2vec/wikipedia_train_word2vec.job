@@ -36,5 +36,5 @@ echo -e "Wikipedia input file=\t\t"$inputfile >> $PRINTFILE
 echo -e "Word2Vec output file=\t\t"$outputfile >> $PRINTFILE
 echo -e "Training embeddings with size\t="$size >> $PRINTFILE
 
-python -u /scratch_gs/malie102/jobs/nlp-representations/word2vec/train_embeddings.py -input_path $inputfile -output_path $outputfile -dimension $size >> $PRINTFILE
+python -u /scratch_gs/malie102/jobs/nlp-representations/word2vec/wikipedia_train_word2vec.py -input_path $inputfile -output_path $outputfile -dimension $size >> $PRINTFILE
 source /home/malie102/base/logging_end.sh
