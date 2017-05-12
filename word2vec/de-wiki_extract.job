@@ -9,7 +9,7 @@
 
 #PBS -l walltime=00:30:00
 #PBS -l select=1:ncpus=4:mem=10gb
-#PBS -N de-wiki-extr
+#PBS -N wikipedia-extract
 
 cd $PBS_O_WORKDIR
 LOGFILE=$PBS_O_WORKDIR/log/$PBS_JOBNAME"."$PBS_JOBID".log"
@@ -28,6 +28,6 @@ echo "Modules: loaded" >> $LOGFILE
 ###########################
 ##   Execution		      #
 ###########################
-python -u process_wiki.py dewiki-latest-pages-articles.xml.bz2 wiki-de.text >> $PRINTFILE
+python -u /scratch_gs/malie102/jobs/nlp-representations/word2vec/process_wiki.py dewiki-latest-pages-articles.xml.bz2 wiki-de.text >> $PRINTFILE
 
 source /home/malie102/base/logging_end.sh
