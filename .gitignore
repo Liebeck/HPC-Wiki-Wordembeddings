@@ -1,3 +1,6 @@
 dewiki-*
 *.text
 word2vec*
+
+#PyCharm
+.idea/
