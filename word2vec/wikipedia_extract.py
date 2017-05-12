@@ -7,26 +7,30 @@ import logging
 import os.path
 import sys
 import six
-
+import argparse
 from gensim.corpora import WikiCorpus
 
+
+def config_argparser():
+    argparser = argparse.ArgumentParser(description='Wikipedia Dump Extractor')
+    argparser.add_argument('-input_path', type=str, required=True, help='Path to the raw Wikipedia dump')
+    argparser.add_argument('-output_path', type=str, required=True, help='Write path for extracted text content')
+    return argparser.parse_args()
+
+
 if __name__ == '__main__':
+    arguments = config_argparser()
     program = os.path.basename(sys.argv[0])
     logger = logging.getLogger(program)
     logging.basicConfig(format='%(asctime)s: %(levelname)s: %(message)s')
     logging.root.setLevel(level=logging.INFO)
     logger.info("running %s" % ' '.join(sys.argv))
-    # check and process input arguments
-    if len(sys.argv) < 3:
-        sys.exit(1)
-    input_path = sys.argv[1]
-    output_path = sys.argv[2]
-    logger.info("Input corpus path: " + input_path)
-    logger.info("Output path: " + output_path)
+    logger.info("Input corpus path: " + arguments.input_path)
+    logger.info("Output path: " + arguments.output_path)
     space = u' '
     i = 0
-    output = open(output_path, 'w')
-    wiki = WikiCorpus(input_path, lemmatize=False, dictionary={})
+    output = open(arguments.output_path, 'w')
+    wiki = WikiCorpus(arguments.input_path, lemmatize=False, dictionary={})
     for text in wiki.get_texts():
         # article = space.join([t.decode("utf-8") for t in text])
         # output.write("{}\n".format(article.encode("utf-8")))
