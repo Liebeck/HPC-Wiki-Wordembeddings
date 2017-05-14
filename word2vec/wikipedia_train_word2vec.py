@@ -25,9 +25,9 @@ if __name__ == '__main__':
     logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s')
     logging.root.setLevel(level=logging.INFO)
     logger.info("running %s" % ' '.join(sys.argv))
-    logger.info("Input path wiki: " + str(arguments.input_path))
+    logger.info("Input path wiki: " + arguments.input_path)
     logger.info("Word embedding output path: " + arguments.output_path)
-    logger.info("Size: " + arguments.dimension)
+    logger.info("Size: " + str(arguments.dimension))
     model = Word2Vec(LineSentence(arguments.input_path), size=arguments.dimension, window=5, min_count=5, workers=20)
     # trim unneeded model memory = use (much) less RAM
     model.init_sims(replace=True)
