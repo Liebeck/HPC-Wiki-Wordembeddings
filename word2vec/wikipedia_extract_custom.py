@@ -8,6 +8,7 @@ import os.path
 import sys
 from gensim import utils
 from gensim.corpora.wikicorpus import extract_pages, IGNORED_NAMESPACES, ARTICLE_MIN_WORDS, remove_markup
+import codecs
 
 
 def config_argparser():
@@ -18,7 +19,7 @@ def config_argparser():
 
 
 def tokenize_new(content):
-    return [token.encode('utf8') for token in utils.tokenize(content, lower=True, errors='ignore')
+    return [token for token in utils.tokenize(content, lower=True, errors='ignore')
             if 2 <= len(token) and not token.startswith('_')]
 
 
@@ -59,7 +60,7 @@ if __name__ == '__main__':
     parsed_articles = []
     parsed_article_counter = 0
     space = u' '
-    output = open(arguments.output_path, 'w')
+    output = codecs.open(arguments.output_path, 'w', 'utf-8')
     for article in texts:
         text, lemmatize, title, pageid = article
         text = utils.to_unicode(text, 'utf8', errors='ignore')
