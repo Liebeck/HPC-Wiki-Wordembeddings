@@ -23,7 +23,7 @@ Please note, there is no dependency management involved and some paths are hardc
 1. (Make sure that you downloaded https://github.com/Liebeck/HPC-Logging and placed them into a directory of your choosing.)
 2. Download https://dumps.wikimedia.org/dewiki/latest/dewiki-latest-pages-articles.xml.bz2
 3. Adjust paths in both job files
-4. *qsub -v inputfile=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501-pages-meta-current.xml.bz2,outputfile=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text wikipedia_extract.job*
+4. *qsub -v inputfile=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501-pages-meta-current.xml.bz2,outputfile=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text wikipedia_extract_custom.job*
 5. *qsub -v inputfile=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,outputfile=/scratch_gs/malie102/data/wikipedia-de/word2vec_wiki-de_20170501_300,size=300 wikipedia_train_word2vec.job*
 
 ## Dependencies
