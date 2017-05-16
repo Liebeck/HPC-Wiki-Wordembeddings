@@ -55,7 +55,7 @@ if __name__ == '__main__':
     lemmatize = utils.has_pattern()
     filter_namespaces = ('0',)
     texts = ((text, lemmatize, title, pageid) for title, text, pageid in
-             extract_pages(bz2.BZ2File(arguments.file_path), filter_namespaces))
+             extract_pages(bz2.BZ2File(arguments.input_path), filter_namespaces))
     parsed_articles = []
     parsed_article_counter = 0
     space = u' '
