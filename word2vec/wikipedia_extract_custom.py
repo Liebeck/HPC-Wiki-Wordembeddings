@@ -19,13 +19,6 @@ def config_argparser():
     return argparser.parse_args()
 
 
-def config_argparser():
-    argparser = argparse.ArgumentParser(description='Wikipedia Dump Extractor')
-    argparser.add_argument('-input_path', type=str, required=True, help='Path to the raw Wikipedia dump')
-    argparser.add_argument('-output_path', type=str, required=True, help='Write path for extracted text content')
-    return argparser.parse_args()
-
-
 if __name__ == '__main__':
     arguments = config_argparser()
     program = os.path.basename(sys.argv[0])
