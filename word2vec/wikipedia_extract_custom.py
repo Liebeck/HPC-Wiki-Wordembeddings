@@ -9,7 +9,7 @@ import sys
 from gensim import utils
 from gensim.corpora.wikicorpus import extract_pages, IGNORED_NAMESPACES, ARTICLE_MIN_WORDS, remove_markup
 import codecs
-from common.gensim_custom import tokenize_new, get_all_words, filter_file_links
+from common.gensim_custom import get_all_words
 
 
 def config_argparser():
