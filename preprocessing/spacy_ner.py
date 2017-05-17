@@ -12,9 +12,9 @@ def extract_german_groups(tokens):
         if token.ent_type_ in ner_filter:
             ner_group = [token.text]
             inner_index = token_index + 1
-            while tokens[inner_index].ent_type_ == token.ent_type_ and \
-                            tokens[inner_index].ent_iob_ in ner_inner_labels and \
-                            inner_index < len(tokens):
+            while inner_index < len(tokens) and \
+                            tokens[inner_index].ent_type_ == token.ent_type_ and \
+                            tokens[inner_index].ent_iob_ in ner_inner_labels:
                 ner_group.append(tokens[inner_index].text)
                 inner_index += 1
                 token_index += 1
@@ -36,4 +36,3 @@ class SpacyNERGrouper(object):
     def group_texts(self, text):
         input_text = text.replace('-', '_')
         return extract_german_groups([token for token in self.nlp(input_text)])
-
