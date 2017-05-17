@@ -9,6 +9,7 @@ import sys
 from gensim import utils
 from gensim.corpora.wikicorpus import extract_pages, IGNORED_NAMESPACES, ARTICLE_MIN_WORDS, remove_markup
 import codecs
+from common.gensim_custom import tokenize_new, get_all_words, filter_file_links
 
 
 def config_argparser():
@@ -16,28 +17,6 @@ def config_argparser():
     argparser.add_argument('-input_path', type=str, required=True, help='Path to the raw Wikipedia dump')
     argparser.add_argument('-output_path', type=str, required=True, help='Write path for extracted text content')
     return argparser.parse_args()
-
-
-def tokenize_new(content):
-    return [token for token in utils.tokenize(content, lower=True, errors='ignore')
-            if 2 <= len(token) and not token.startswith('_')]
-
-
-def get_all_words(text):
-    text = filter_file_links(text)
-    return tokenize_new(text.replace('[', '').replace(']', ''))
-
-
-def filter_file_links(text):
-    '''
-     In order to remove '[[File: ]]' entries, we decided to split the article's text into multiple lines and to
-     remove every line that contains '[[File::'. We tried other approaches but some outlier still remained.
-     Therefore, we are greedy in removing lines.
-    '''
-    lines = text.split('\n')
-    lines = [x for x in lines if not ('[[File:' in x)]
-    text = '\n'.join(lines)
-    return text
 
 
 def config_argparser():
