@@ -10,6 +10,9 @@ def get_all_words(text):
     text = filter_file_links(text)
     return tokenize_new(text.replace('[', '').replace(']', ''))
 
+def get_all_words_grouped(text, spacy_ner_grouper):
+    text = filter_file_links(text)
+    return spacy_ner_grouper.group_texts(text.replace('[', '').replace(']', ''))
 
 def filter_file_links(text):
     '''
