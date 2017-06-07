@@ -16,7 +16,7 @@ def config_argparser():
     argparser.add_argument('-tokenized', dest='tokenized', action='store_true')
     argparser.set_defaults(tokenized=True)
     argparser.add_argument('-loading_method', type=str, default='extract_all_words')
-    # argparser.add_argument('-output_path', type=str, required=True, help='Write path for the lda model')
+    argparser.add_argument('-output_path', type=str, default=None, help='Write path for the lda model')
     argparser.add_argument('-k', type=int, required=True, help='Number of topics for LDA')
     argparser.add_argument('-passes', type=int, default=200, help='Number of passes for LDA training')
     argparser.add_argument('-lowercase', dest='lowercase', action='store_true')
@@ -79,6 +79,10 @@ if __name__ == '__main__':
     corpus = [dictionary.doc2bow(text) for text in documents]
     ldamodel = gensim.models.ldamodel.LdaModel(corpus, num_topics=arguments.k, id2word=dictionary,
                                                passes=arguments.passes)
+    logger.info('LDA models trained')
     ldamodel.print_topics()
-    # todo: train LDA
-    # todo: save results in file system
+    if not arguments.output_path:
+        logger.info('No output_path specified, no model will be saved to disk')
+    else:
+        logger.info('Saving LDA models to {}'.format(arguments.output_path))
+        ldamodel.save(arguments.output_path)
