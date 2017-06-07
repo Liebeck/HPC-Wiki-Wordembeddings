@@ -6,6 +6,8 @@ import argparse
 import os
 import sys
 import json
+import gensim
+from gensim import corpora, models
 
 
 def config_argparser():
@@ -55,5 +57,11 @@ if __name__ == '__main__':
     logger.info("running %s" % ' '.join(sys.argv))
     documents = load_input_file(arguments.input_file, loading_method=arguments.loading_method,
                                 tokenized=arguments.tokenized)
+    dictionary = corpora.Dictionary(documents)
+    print(str(len(dictionary)))
+    corpus = [dictionary.doc2bow(text) for text in documents]
+    passes = 50
+    ldamodel = gensim.models.ldamodel.LdaModel(corpus, num_topics=arguments.k, id2word=dictionary, passes=passes)
+    ldamodel.print_topics()
     # todo: train LDA
     # todo: save results in file system
