@@ -80,7 +80,8 @@ if __name__ == '__main__':
     ldamodel = gensim.models.ldamodel.LdaModel(corpus, num_topics=arguments.k, id2word=dictionary,
                                                passes=arguments.passes)
     logger.info('LDA models trained')
-    ldamodel.print_topics()
+    for i in ldamodel.show_topics(-1, 10):
+        print(i)
     if not arguments.output_path:
         logger.info('No output_path specified, no model will be saved to disk')
     else:
