@@ -31,9 +31,23 @@ def extract_all_words(documents):
     return new_documents
 
 
+def extract_nouns(documents):
+    new_documents = []
+    for document in documents:
+        new_document = []
+        for token in document['Tokens']:
+            if token["POS"] == "NOUN":
+                new_document.append(token['Text'])
+        if len(new_document) > 0:
+            new_documents.append(new_document)
+    return new_documents
+
+
 def get_loading_method(loading_method):
     if loading_method == 'extract_all_words':
         return extract_all_words
+    elif loading_method == 'extract_nouns':
+        return extract_nouns
     else:
         return None
 
