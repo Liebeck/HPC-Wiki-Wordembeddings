@@ -1,7 +1,7 @@
 import bz2
 from gensim import utils
 from gensim.corpora.wikicorpus import extract_pages, IGNORED_NAMESPACES, ARTICLE_MIN_WORDS, remove_markup
-from common.gensim_custom import get_all_words_grouped
+from common.gensim_custom import get_all_words
 
 
 def iterate_wiki(input_path, spacy_ner_grouper):
@@ -14,7 +14,7 @@ def iterate_wiki(input_path, spacy_ner_grouper):
         text = utils.to_unicode(text, 'utf8', errors='ignore')
         text = utils.decode_htmlentities(text)  # '&amp;nbsp;' --> '\xa0'
         text = remove_markup(text)
-        tokens = get_all_words_grouped(text, spacy_ner_grouper)
+        tokens = get_all_words(text)
         if len(tokens) < ARTICLE_MIN_WORDS or any(title.startswith(ignore + ':') for ignore in IGNORED_NAMESPACES):
             continue
         yield title, tokens

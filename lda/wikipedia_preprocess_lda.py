@@ -41,10 +41,10 @@ if __name__ == '__main__':
     # print(title)
     # for title, tokens in itertools.islice(iterate_wiki(arguments.input_path), 8):
     # print(title, tokens[:10])  # print the article title and its first ten tokens
-    space_ner_grouper = SpacyNERGrouper()
+    #space_ner_grouper = SpacyNERGrouper()
 
     # Create the dictionary
-    doc_stream = (tokens for _, tokens in iterate_wiki(arguments.input_path, space_ner_grouper))
+    doc_stream = (tokens for _, tokens in iterate_wiki(arguments.input_path))
     wiki_id2word_dictionary = gensim.corpora.Dictionary(doc_stream)
     print(wiki_id2word_dictionary)
     wiki_id2word_dictionary.filter_extremes(no_below=20, no_above=0.1)
@@ -52,7 +52,7 @@ if __name__ == '__main__':
     wiki_id2word_dictionary.dictionary.save_as_text(arguments.output_path + '_wordids.txt.bz2')
 
     # create bag of words representation
-    wiki_corpus = WikiCorpusCustom(arguments.input_path, wiki_id2word_dictionary, space_ner_grouper)
+    wiki_corpus = WikiCorpusCustom(arguments.input_path, wiki_id2word_dictionary)
     gensim.corpora.MmCorpus.serialize(arguments.output_path + '_bow.mm', wiki_corpus)
 
     # serialize tfidf
