@@ -104,4 +104,5 @@ if __name__ == '__main__':
         logger.info('No output_path specified, no model will be saved to disk')
     else:
         logger.info('Saving LDA models to {}'.format(arguments.output_path))
+        dictionary.save_as_text(arguments.output_path + '_wordids.txt.bz2')
         ldamodel.save(arguments.output_path)
