@@ -56,4 +56,4 @@ export PYTHONPATH=$PYTHONPATH:/software/python/3.4.5/login/bin/python
 
 
 ###### EXECUTION ######
-python -u /scratch_gs/malie102/jobs/nlp-representations/lda/train_lda.py -input_file input_file -loading_method $loading_method -blacklist_file $blacklist_file -passes $passes -output_path $output_path -k $k
+python -u /scratch_gs/malie102/jobs/nlp-representations/lda/train_lda.py -input_file $input_file -loading_method $loading_method -blacklist_file $blacklist_file -passes $passes -output_path $output_path -k $k
