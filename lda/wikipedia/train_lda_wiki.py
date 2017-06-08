@@ -5,17 +5,12 @@ import logging
 import os.path
 import sys
 import argparse
-import bz2
-import itertools
-from gensim import utils
-from gensim.corpora.wikicorpus import extract_pages, IGNORED_NAMESPACES, ARTICLE_MIN_WORDS, remove_markup
-from common.gensim_custom import get_all_words
 import gensim
-from lda.wiki_corpus_custom import WikiCorpusCustom
+from lda.wikipedia.wiki_corpus_custom import WikiCorpusCustom
 from gensim.corpora import MmCorpus
 from gensim.models import TfidfModel
-from preprocessing.spacy_ner import SpacyNERGrouper
-from wiki_iterate import iterate_wiki
+from lda.wikipedia.wiki_corpus_custom import iterate_wiki
+import itertools
 
 def config_argparser():
     argparser = argparse.ArgumentParser(description='Wikipedia train word2vec')
@@ -36,11 +31,11 @@ if __name__ == '__main__':
     logger.info("Word embedding output path: " + arguments.output_path)
 
     # logger.info("k: " + str(arguments.k))
-    # iterate_wiki(arguments.input_path)
-    # for title, tokens in iterate_wiki(arguments.input_path):
+    #iterate_wiki(arguments.input_path)
+    #for title, tokens in iterate_wiki(arguments.input_path):
     # print(title)
-    # for title, tokens in itertools.islice(iterate_wiki(arguments.input_path), 8):
-    # print(title, tokens[:10])  # print the article title and its first ten tokens
+    #for title, tokens in itertools.islice(iterate_wiki(arguments.input_path), 8):
+        #print(title, tokens[:10])  # print the article title and its first ten tokens
     #space_ner_grouper = SpacyNERGrouper()
 
     # Create the dictionary
