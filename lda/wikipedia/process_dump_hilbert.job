@@ -58,4 +58,4 @@ export PYTHONPATH=$PYTHONPATH:/software/python/3.4.5/login/bin/python
 
 
 ###### EXECUTION ######
-python -u /scratch_gs/malie102/jobs/nlp-representations/lda/wikipedia.process_dump.py -input_path $input_path -output_path $output_path
+python -u /scratch_gs/malie102/jobs/nlp-representations/lda/wikipedia/process_dump.py -input_path $input_path -output_path $output_path
