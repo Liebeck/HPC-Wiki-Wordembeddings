@@ -5,7 +5,7 @@ from gensim.corpora.wikicorpus import extract_pages, IGNORED_NAMESPACES, ARTICLE
 from common.gensim_custom import get_all_words
 # based on http://radimrehurek.com/topic_modeling_tutorial/2%20-%20Topic%20Modeling.html
 
-def iterate_wiki(input_path, spacy_ner_grouper):
+def iterate_wiki(input_path):
     lemmatize = utils.has_pattern()
     filter_namespaces = ('0',)
     texts = ((text, lemmatize, title, pageid) for title, text, pageid in
