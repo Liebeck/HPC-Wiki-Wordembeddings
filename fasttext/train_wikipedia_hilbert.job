@@ -1,0 +1,39 @@
+#!/bin/bash
+###########################
+##   The PBS directives   #
+###########################
+#PBS -r n
+#PBS -A OP-NLP
+#PBS -e log/
+#PBS -o log/
+
+#PBS -l walltime=48:00:00
+#PBS -l select=1:ncpus=4:mem=10gb
+#PBS -N wikipedia-extract
+
+cd $PBS_O_WORKDIR
+LOGFILE=$PBS_O_WORKDIR/log/$PBS_JOBNAME"."$PBS_JOBID".log"
+PRINTFILE=$PBS_O_WORKDIR/log/$PBS_JOBNAME".print"
+source /home/malie102/base/logging_header.sh
+
+###########################
+##   Modules		      #
+###########################
+module load Python/3.4.5
+export LD_LIBRARY_PATH=/home/malie102/lib:$LD_LIBRARY_PATH
+
+
+echo "Modules: loaded" >> $LOGFILE
+###########################
+##   Execution		      #
+###########################
+echo -e $input_file >> $PRINTFILE
+echo -e $output_path >> $PRINTFILE
+echo -e $fasttext_path >> $PRINTFILE
+echo -e $iterations >> $PRINTFILE
+echo -e $min_n >> $PRINTFILE
+echo -e $max_n >> $PRINTFILE
+
+python -u /scratch_gs/malie102/jobs/nlp-representations/fasttext/train_wikipedia_hilbert.py -input_path $input_file -output_path $output_path -fasttext_path $fasttext_path -iterations $iterations -min_n $min_n -max_n $max_n >> $PRINTFILE
+
+source /home/malie102/base/logging_end.sh
