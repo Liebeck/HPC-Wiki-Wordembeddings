@@ -18,7 +18,36 @@ make
 
 ## HILBERT scripts
 ``` bash
-qsub -v inputfile=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-3_3-5,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=5,min_n=3,max_n=3 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-3_3-5,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=5,min_n=3,max_n=3 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-4_4-5,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=5,min_n=4,max_n=4 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-5_5-5,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=5,min_n=5,max_n=5 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-6_6-5,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=5,min_n=6,max_n=6 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-3_6-5,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=5,min_n=3,max_n=6 train_wikipedia_hilbert.job
+
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-3_3-10,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=10,min_n=3,max_n=3 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-4_4-10,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=10,min_n=4,max_n=4 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-5_5-10,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=10,min_n=5,max_n=5 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-6_6-10,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=10,min_n=6,max_n=6 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-3_6-10,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=10,min_n=3,max_n=6 train_wikipedia_hilbert.job
+
+
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-3_3-20,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=20,min_n=3,max_n=3 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-4_4-20,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=20,min_n=4,max_n=4 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-5_5-20,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=20,min_n=5,max_n=5 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-6_6-20,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=20,min_n=6,max_n=6 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-3_6-20,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=20,min_n=3,max_n=6 train_wikipedia_hilbert.job
+
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-3_3-50,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=50,min_n=3,max_n=3 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-4_4-50,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=50,min_n=4,max_n=4 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-5_5-50,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=50,min_n=5,max_n=5 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-6_6-50,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=50,min_n=6,max_n=6 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-3_6-50,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=50,min_n=3,max_n=6 train_wikipedia_hilbert.job
+
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-3_3-100,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=100,min_n=3,max_n=3 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-4_4-100,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=100,min_n=4,max_n=4 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-5_5-100,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=100,min_n=5,max_n=5 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-6_6-100,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=100,min_n=6,max_n=6 train_wikipedia_hilbert.job
+qsub -v input_file=/scratch_gs/malie102/data/wikipedia-de/dewiki-20170501.custom.text,output_path=/scratch_gs/malie102/data/fasttext/dewiki-20170501-3_6-100,fasttext_path=/scratch_gs/malie102/code/fastText/fasttext,iterations=100,min_n=3,max_n=6 train_wikipedia_hilbert.job
 ```
 
 
