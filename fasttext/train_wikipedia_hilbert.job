@@ -9,7 +9,9 @@
 
 #PBS -l walltime=48:00:00
 #PBS -l select=1:ncpus=4:mem=10gb
-#PBS -N wikipedia-extract
+#PBS -N wikipedia-fasttext
+#PBS -m abe
+#PBS -M liebeck@cs.uni-duesseldorf.de
 
 cd $PBS_O_WORKDIR
 LOGFILE=$PBS_O_WORKDIR/log/$PBS_JOBNAME"."$PBS_JOBID".log"
@@ -34,6 +36,6 @@ echo -e $iterations >> $PRINTFILE
 echo -e $min_n >> $PRINTFILE
 echo -e $max_n >> $PRINTFILE
 
-python -u /scratch_gs/malie102/jobs/nlp-representations/fasttext/train_wikipedia_hilbert.py -input_path $input_file -output_path $output_path -fasttext_path $fasttext_path -iterations $iterations -min_n $min_n -max_n $max_n >> $PRINTFILE
+python -u /scratch_gs/malie102/jobs/nlp-representations/fasttext/train_wikipedia_hilbert.py -input_file $input_file -output_path $output_path -fasttext_path $fasttext_path -iterations $iterations -min_n $min_n -max_n $max_n >> $PRINTFILE
 
 source /home/malie102/base/logging_end.sh
